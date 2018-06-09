@@ -1,0 +1,89 @@
+<html lang="en">
+  <head>
+    <title>Dashboard</title>
+
+    <!-- Rules -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scaleable=no">
+
+    <!-- Stylesheets -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Scripts -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="alert alert-secondary" role="alert">
+      <a href="https://www.facebook.com/" class="btn btn-primary" role="button">Facebook</a>
+      <a href="https://www.sparkasse-uelzen-luechow-dannenberg.de" class="btn btn-primary" role="button">Sparkasse</a>
+      <a href="https://www.youtube.com/" class="btn btn-primary" role="button">YouTube</a>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="card">
+                <div class="card-body text-center">
+                  <h2 id="Time_LTS">20:00 Uhr</h2>
+                  <h4 class="text-muted">
+                    <span id="Time_DAY"></span>,
+                    <span  id="Time_DATE"></span>
+                  </h4>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm">
+              <div class="card">
+                <h5 class="card-header">Anrufe</h5>
+                <div class="card-body">
+                  <p id="Fritz_LoadHistory">Lade Anruferdaten...</p>
+                  <ul id="Fritz_CallHistory"></ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="card">
+            <h5 class="card-header">Module</h5>
+            <div class="card-body Modules">
+              <div id="Module_Notifies"></div>
+              <div id="Module_FinTS_HCBI" class="Module">
+                <h4>Kontosaldo</h4>
+                Derzeitiger Kontostand beträgt: <span id="FinTS_Saldo">--</span> €
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+
+    <div class="modal fade" id="IncomingCall" tabindex="-1" role="dialog" aria-labelledby="IncomingCallLbl" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="IncomingCallLbl">Eingehender Anruf</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <span id="IncomingCallerInfo"></span>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
+            <button id="IncomingCallback" type="button" class="btn btn-primary" data-tel="">Zurückrufen</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
