@@ -19,29 +19,8 @@ app.get('/style.css', function(req, res){
 app.get('/script.js', function(req, res){
   res.sendFile(__dirname + '/website/script.js');
 });
-app.get('/android-chrome-192x192.png', function(req, res){
-  res.sendFile(__dirname + '/website/android-chrome-192x192.png');
-});
-app.get('/android-chrome-256x256.png', function(req, res){
-  res.sendFile(__dirname + '/website/android-chrome-256x256.png');
-});
-app.get('/apple-touch-icon.png', function(req, res){
-  res.sendFile(__dirname + '/website/apple-touch-icon.png');
-});
-app.get('/favicon.ico', function(req, res){
-  res.sendFile(__dirname + '/website/favicon.ico');
-});
-app.get('/favicon-16x16.png', function(req, res){
-  res.sendFile(__dirname + '/website/favicon-16x16.png');
-});
-app.get('/favicon-16x16.png', function(req, res){
-  res.sendFile(__dirname + '/website/favicon-32x32.png');
-});
-app.get('/site.webmanifest', function(req, res){
-  res.sendFile(__dirname + '/website/site.webmanifest');
-});
 
-http.listen(3000, function(){
+http.listen(61517, function(){
   console.log('Der Webserver wurde gestartet');
 });
 
